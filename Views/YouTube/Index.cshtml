@@ -1,0 +1,199 @@
+﻿@model List<YoutubeApiProject1.Models.YouTubeVideoModel>
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Musico</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/audioplayer.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/gijgo.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Style For Youtube -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .video-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            display: flex; /* Added to use Flexbox */
+            flex-direction: column; /* Align items vertically */
+            align-items: center; /* Center items horizontally */
+        }
+        .video-card:hover {
+            transform: scale(1.05);
+        }
+        .video-card img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .video-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .video-card p {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Search YouTube Videos</h2>
+    <form asp-action="Search" method="post">
+        <input type="text" name="query" placeholder="Search for videos..." />
+        <button type="submit">Search</button>
+    </form>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="video-container">
+            @foreach (var video in Model)
+            {
+                <div class="video-card">
+                    <h3>@video.Title</h3>
+                    <img src="@video.ThumbnailUrl" alt="@video.Title" />
+                    <a href="@video.VideoUrl" target="_blank">
+                        <button type="button">Watch</button> </a>
+                </div>
+            }
+        </div>
+
+    }
+
+    <!-- youtube_video_area  -->
+    <div class="youtube_video_area">
+        <div class="container-fluid p-0">
+            <div class="row no-gutters">
+                <div class="col-xl-3 col-lg-3 col-md-6">
+                    <div class="single_video">
+                        <div class="thumb">
+                            <img src="img/video/1.jpg" alt="">
+                        </div>
+                        <div class="hover_elements">
+                            <div class="video">
+                                <a class="popup-video" href="https://www.youtube.com/watch?v=og8_27ocAao">
+                                    <i class="fa fa-play"></i>
+                                </a>
+                            </div>
+                            <div class="hover_inner">
+                                <h3><a href="#">Rindu Serindu Rindunya</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6">
+                    <div class="single_video">
+                        <div class="thumb">
+                            <img src="img/video/2.jpg" alt="">
+                        </div>
+                        <div class="hover_elements">
+                            <div class="video">
+                                <a class="popup-video" href="https://www.youtube.com/watch?v=_Ta7qEfZD54">
+                                    <i class="fa fa-play"></i>
+                                </a>
+                            </div>
+
+                            <div class="hover_inner">
+                                <h3><a href="#">Gerhana Cinta Luka</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6">
+                    <div class="single_video">
+                        <div class="thumb">
+                            <img src="img/video/3.jpg" alt="">
+                        </div>
+                        <div class="hover_elements">
+                            <div class="video">
+                                <a class="popup-video" href="https://www.youtube.com/watch?v=_Ta7qEfZD54">
+                                    <i class="fa fa-play"></i>
+                                </a>
+                            </div>
+                            <div class="hover_inner">
+                                <h3><a href="#">Haruskah Kita Berpisah</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6">
+                    <div class="single_video">
+                        <div class="thumb">
+                            <img src="img/video/4.jpg" alt="">
+                        </div>
+                        <div class="hover_elements">
+                            <div class="video">
+                                <a class="popup-video" href="https://www.youtube.com/watch?v=Q1Paw7xf2gc">
+                                    <i class="fa fa-play"></i>
+                                </a>
+                            </div>
+                            <div class="hover_inner">
+                                <h3><a href="#">Permaisuri</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- / youtube_video_area  -->
+
+
+</body>
+</html>
